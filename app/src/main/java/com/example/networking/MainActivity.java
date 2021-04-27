@@ -110,6 +110,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String json) {
             Log.d("TAG", json);
+            Gson gson = new Gson();
+            mountains = gson.fromJson(json,Mountain[].class);
+            adapter=new ArrayAdapter<Mountain>(MainActivity.this,R.layout.listview_item,mountains);
+
+            ListView listview  = findViewById(R.id.my_listview);
+            listview.setAdapter(adapter);
+
         }
     }
 }
