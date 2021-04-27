@@ -6,9 +6,12 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -48,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listview  = findViewById(R.id.my_listview);
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Snackbar.make(view, mountains[position].getName(), Snackbar.LENGTH_LONG).show();
+            }
+        });
+
 
         try{
             InputStream is = getApplicationContext().getAssets().open("json/mountain.json");
