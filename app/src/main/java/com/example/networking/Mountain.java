@@ -26,20 +26,12 @@ public class Mountain {
     private Auxdata auxdata;
 
     public String getName() {
-        return name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public int getSize() {
-        return size;
+        return "Mountain: " + name + ", location: " + location + ", Meters: " + size;
     }
 
     @Override
     public String toString() {
         return name;
-
     }
+
 }
