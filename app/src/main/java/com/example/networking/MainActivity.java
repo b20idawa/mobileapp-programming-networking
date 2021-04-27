@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         ListView listview  = findViewById(R.id.my_listview);
         listview.setAdapter(adapter);
 
-
         try{
             InputStream is = getApplicationContext().getAssets().open("json/mountain.json");
             String s = convertStreamToString(is);
@@ -54,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < mountains.length; i++)  {
                 Log.d("MainActivity", "Hittade berg " + mountains[i].getName());
+                mountainArrayList.add(mountains[i]);
             }
-
         }catch (Exception e){
             Log.e("MainActivity","Something went wrong when reading textfile:\n\n"+ e.getMessage());
         }
