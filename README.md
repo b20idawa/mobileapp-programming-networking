@@ -129,8 +129,8 @@ return "Mountain: " + name + ", location: " + location + ", Meters: " + size;
 ````
 
 ### Screenshot över applikationens start
-![](screen_1.png)
+![](Screen_1.png)
 
 ### Screenshot över interaktion med ListView
-![](screen_2.png)
+![](Screen_2.png)
 
