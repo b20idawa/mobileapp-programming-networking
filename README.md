@@ -92,7 +92,7 @@ Gson gson = new Gson();
 mountains = gson.fromJson(s,Mountain[].class);
 
 for (int i = 0; i < mountains.length; i++) {
-Log.d("MainActivity", "Hittade berg " + mountains[i].getName());
+Log.d("MainActivity", "Hittade berg " + mountains[i].info());
 }
 ````
 ### AsyncTask
@@ -112,18 +112,18 @@ ListView listview = findViewById(R.id.my_listview);
 listview.setAdapter(adapter);
 ````
 ### Snackbar
-När en användare trycker på ett av bergsnamnen i listan ska en snackbar visas. För att applikationen ska veta att ett tryck har skett på ett av namnen i listan används listview tillsammans med metoden setOnItemClickListener. Metoden i sin tur innehåller en snackbar som använder positionen för mountains array för att veta vilket objekt som en användare har klickat på. Positionen används tillsammans med metoden getName(). Metoden finns i Mountain.java och är av typen string. GetName() kommer att returnera data från arrayen i form av namnet på berget som valts tillsammans med dess location och size. Snackbar elementet har fått en durationtime på 5000ms med hjälp av setDuration vilket kommer att synliggöra elementet något längre än vad standarden är.
+När en användare trycker på ett av bergsnamnen i listan ska en snackbar visas. För att applikationen ska veta att ett tryck har skett på ett av namnen i listan används listview tillsammans med metoden setOnItemClickListener. Metoden i sin tur innehåller en snackbar som använder positionen för mountains array för att veta vilket objekt som en användare har klickat på. Positionen används tillsammans med metoden info(). Metoden finns i Mountain.java och är av typen string. info() kommer att returnera data från arrayen i form av namnet på berget som valts tillsammans med dess location och size. Snackbar elementet har fått en durationtime på 5000ms med hjälp av setDuration vilket kommer att synliggöra elementet något längre än vad standarden är.
 
 ````
 listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 @Override
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-Snackbar.make(view, mountains[position].getName(), Snackbar.LENGTH_LONG).setDuration(5000).show();
+Snackbar.make(view, mountains[position].info(), Snackbar.LENGTH_LONG).setDuration(5000).show();
 }
 });
 ````
 ````
-public String getName() {
+public String info() {
 return "Mountain: " + name + ", location: " + location + ", Meters: " + size;
 }
 ````
