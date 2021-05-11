@@ -25,7 +25,7 @@ public class Mountain {
     private int cost;
     private Auxdata auxdata;
 
-    public String getName() {
+    public String info() {
         return "Mountain: " + name + ", location: " + location + ", Meters: " + size;
     }
 

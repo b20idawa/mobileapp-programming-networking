@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(view, mountains[position].getName(), Snackbar.LENGTH_LONG).setDuration(5000).show();
+                Snackbar.make(view, mountains[position].info(), Snackbar.LENGTH_LONG).setDuration(5000).show();
             }
         });
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             mountains = gson.fromJson(s,Mountain[].class);
 
             for (int i = 0; i < mountains.length; i++)  {
-                Log.d("MainActivity", "Hittade berg " + mountains[i].getName());
+                Log.d("MainActivity", "Hittade berg " + mountains[i].info());
                 mountainArrayList.add(mountains[i]);
             }
         }catch (Exception e){
